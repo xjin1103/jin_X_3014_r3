@@ -1,8 +1,8 @@
 <?php
   use PHPMailer\PHPMailer\PHPMailer;
-  use PHPMailer\PHPMailer\Exception;  
+  use PHPMailer\PHPMailer\Exception;
 
-  require($_SERVER["DOCUMENT_ROOT"] . './jin_X_3014_r3/vendor/autoload.php');
+  require($_SERVER["DOCUMENT_ROOT"] . '/jin_X_3014_r3/vendor/autoload.php');
 
   function createUser($fname, $username, $password, $email, $lvllist){
     include('connect.php');
@@ -14,27 +14,27 @@
     //echo $userstring;
     $userquery = mysqli_query($link, $userstring);
     if($userquery){
-      $userMsg = "<p>Hello " . $fname . ", you become a new user now. Please check your account info below:" . "</p><br/><li>User Name: " . $username . "</li>" . "<li>Password: " . $password . "</li><br/><p>Plese click <a href='http://localhost/login'>HERE</a> to login.</p>"; 
+      $userMsg = "<p>Hello " . $fname . ", you become a new user now. Please check your account info below:" . "</p><br/><li>User Name: " . $username . "</li>" . "<li>Password: " . $password . "</li><br/><p>Plese click <a href='http://localhost:8888/jin_X_3014_r3/admin/admin_login.php'>HERE</a> to login.</p>";
       //send email
-      $mailToUser = new PHPMailer(true);  
+      $mailToUser = new PHPMailer(true);
           try {
               $mailToUser->isSMTP();
-              //$mailToUser->SMTPDebug = 2;      
+              //$mailToUser->SMTPDebug = 2;
               $mailToUser->SMTPSecure = 'ssl';// Enable verbose debug output
               $mailToUser->Host = 'smtp.163.com';
               $mailToUser->SMTPAuth = true;
-              $mailToUser->Username = 'wesley618@163.com'; 
+              $mailToUser->Username = 'wesley618@163.com';
               $mailToUser->Password = '68760273a';
-              $mailToUser->Port = 465;  					
+              $mailToUser->Port = 465;
               $mailToUser->setFrom('wesley618@163.com', 'Admin');
               $mailToUser->addAddress($email);
-              $mailToUser->isHTML(true);    
+              $mailToUser->isHTML(true);
               $mailToUser->Subject = 'New User';
               $mailToUser->addReplyTo('wesley618@163.com', 'Admin');
-              $mailToUser->Body = "<h2>New User</h2>" . $userMsg;                  
+              $mailToUser->Body = "<h2>New User</h2>" . $userMsg;
               $mailToUser->AltBody = "<h2>New User</h2>" . $userMsg;
               $mailToUser->send();
-              $mailSuccessMsgUser = "Email has been sent."; 
+              $mailSuccessMsgUser = "Email has been sent.";
               $message = "You have added a new user.";
               return $message;
               }
@@ -68,7 +68,7 @@
 
 		mysqli_close($link);
   }
-  
+
 
 	function deleteUser($id) {
 		include('connect.php');

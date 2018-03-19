@@ -1,7 +1,7 @@
 <?php
 	// Set up connection credentials
-	$user = "jin";
-	$pass = "1103";
+	$user = "root";
+	$pass = "root";
 	$url = "localhost";
 	$db = "db_movies";
 	date_default_timezone_set('America/Toronto');
