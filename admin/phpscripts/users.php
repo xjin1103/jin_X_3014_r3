@@ -2,7 +2,7 @@
   use PHPMailer\PHPMailer\PHPMailer;
   use PHPMailer\PHPMailer\Exception;  
 
-  require($_SERVER["DOCUMENT_ROOT"] . './login/vendor/autoload.php');
+  require($_SERVER["DOCUMENT_ROOT"] . './jin_X_3014_r3/vendor/autoload.php');
 
   function createUser($fname, $username, $password, $email, $lvllist){
     include('connect.php');
